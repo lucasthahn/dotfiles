@@ -39,7 +39,6 @@ set directory=~/tmp//,.,/var/tmp//,/tmp//
 :set showmode
 :set showcmd
 :set backspace=indent,start,eol
-:set cursorline
 
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 
@@ -63,8 +62,8 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 "Bundle 'Valloric/YouCompleteMe'
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
-:set expandtab
-:set tabstop=2
+:set noexpandtab
+:set tabstop=8
 :set shiftwidth=2
 
 " PYTHON SHIT
@@ -80,6 +79,8 @@ au BufRead,BufNewFile Makefile* set noexpandtab
 
 au BufRead,BufNewFile *.jl set tabstop=3
 au BufRead,BufNewFile *.jl set shiftwidth=3
+
+set listchars=eol:$,nbsp:_,tab:>-,trail:~,extends:>,precedes:<,space:@
 
 " Use the below highlight group when displaying bad whitespace is desired.
 "highlight BadWhitespace ctermbg=red guibg=red
@@ -225,7 +226,4 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 map ,t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 map ,v :vsplit <C-R>=expand("%:p:h") . "/" <CR>
-
-
-execute pathogen#infect()
 
