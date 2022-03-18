@@ -24,3 +24,24 @@ export EDITOR='/usr/bin/vim'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# CUDA 11.0
+if [ -d "/usr/local/cuda-11.0/bin/" ]; then
+    export PATH=/usr/local/cuda-11.0/bin${PATH:+:${PATH}}
+    export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/lhahn1/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/lhahn1/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lhahn1/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/lhahn1/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
